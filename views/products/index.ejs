@@ -1,0 +1,36 @@
+<%- include("../partials/header")%>
+
+
+<div class = "container" style = "margin: 4rem auto">
+	<div class = "card bg-dark text-white bannerCard">
+		<img src = "https://cdn.fleetfeet.com/assets/Nike-Pegasus-36-Masthead.png/dynamic:1-aspect:2.4-fit:cover-strategy:entropy/Nike-Pegasus-36-Masthead--1920.jpg" height = "350rem">
+		<div class = "card-img-overlay">
+			<h1>See the collection here.</h1>
+			<p>We have handpicked sneakers for you at best prices.</p>
+		    <a class = "btn btn-lg btn-outline-light" href = "/products/new">Add a new sneaker</a>
+		</div>
+	</div>
+	
+	
+	<div class = "row text-center" >
+		<% products.forEach(function(product){ %>
+	    <div class = "col-md-3 col-sm-6">
+			<div class = "card" style = "margin: 1rem auto">
+				<img src = "<%= product.image %>" class = "card-img-top"> 
+				<div class = "card-body">
+					<h4 class = "card-text"><%= product.name %></h4>
+					<p>
+						<a href = "/products/<%= product._id %>" class = "btn btn-primary">More Info</a>
+					</p>
+				</div>
+			</div>
+	   </div>
+         <%	}); %>
+	</div>
+
+</div>
+
+
+
+
+<%- include("../partials/footer")%>
