@@ -1,0 +1,60 @@
+<%- include("../partials/header")%>
+
+<div class = "container showCont">
+	<div class = "row">
+		<div class = "col-md-3">
+			<p class = "lead">SneakersHead</p>
+			<div class = "list-group">
+				<li class = "list-group-item active bg-primary">Running</li>
+				<li class = "list-group-item">Walking</li>
+				<li class = "list-group-item">Jordan</li>
+				
+			</div>
+		</div>
+		<div class = "col-md-8">
+			<div class = "card">
+	            <img class = "img-responsive" src = "<%= product.image %>" style = "height: 50rem">
+		             <div class = "card-body">
+			         <h5 class = "text-right">$36.00</h4>
+			         <h5 class = "card-text"><%= product.name %></h4>
+			         <p><%= product.description %></p>
+				     <p><em>Posted by <%= product.author.username %></em></p>
+					<% if(currentUser && product.author.id.equals(currentUser._id)){ %>
+					 <a class = "btn btn-warning" href = "/products/<%= product._id %>/edit">Edit</a>
+				<form id = "delete-form" action = "/products/<%= product._id %>?_method=DELETE" method = "POST">
+					<button class = "btn btn-danger">Delete</button>
+			   </form>
+				    <% } %>
+		</div>
+	</div>
+			<div class = "card bg-light commentCard">
+				<div>
+					<span class = "reviewSpan">Reviews</span><a class = "btn btn-primary float-right" href = "<%=product._id%>/comments/new">Submit a Review</a>	
+				</div>
+				<hr></hr>
+				   <%product.comments.forEach(function(comment){%>
+				     <div class = "row">
+						 <div class = "col-md-12">
+							 <strong><%=comment.author.username%></strong>
+							 <span class = "float-right">8 days ago</span>
+							 <p>
+								 <%=comment.text%>
+							 </p>
+				<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+							 <a class = "btn btn-sm btn-warning" 
+								href = "/products/<%=product._id%>/comments/<%=comment._id%>/edit">Edit</a>
+<form class = "delete-form" action = "/products/<%= product._id %>/comments/<%= comment._id%>?_method=DELETE" method = "POST">
+					<button class = "btn btn-sm btn-danger">Delete</button>
+			   </form>
+				  <% } %>
+						 </div>
+				   </div>
+			       <%})%>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<%- include("../partials/footer")%>

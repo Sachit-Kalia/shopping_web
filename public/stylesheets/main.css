@@ -1,0 +1,46 @@
+.lead{
+	font-weight:700;
+}
+
+.commentCard{
+	margin: 2rem auto;
+	padding: 0.5rem;
+}
+
+.reviewSpan{
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+.showCont{
+	width: 100rem;
+	margin: 3rem auto auto auto;
+}
+
+#banner{
+	font-size: 3.5rem;
+	font-weight: 500;
+	
+}
+
+.mainCont{
+	margin-top: 3rem;
+}
+
+.regCont{
+	margin: 5rem auto;
+	width: 40rem;
+}
+
+.logCont{
+	margin: 5rem auto;
+	width: 40rem;
+}
+
+#delete-form {
+	display: inline;
+}
+
+.delete-form {
+	display: inline;
+}
